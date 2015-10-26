@@ -82,6 +82,7 @@ typedef NS_ENUM(NSUInteger, XLFormRowNavigationDirection) {
 
 @property XLFormDescriptor * form;
 @property IBOutlet UITableView * tableView;
+@property (nonatomic) BOOL IQKeyboardManagerActive;
 
 -(id)initWithForm:(XLFormDescriptor *)form;
 -(id)initWithForm:(XLFormDescriptor *)form style:(UITableViewStyle)style;

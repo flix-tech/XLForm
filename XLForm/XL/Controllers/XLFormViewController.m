@@ -105,6 +105,7 @@
 {
     _form = nil;
     _tableViewStyle = UITableViewStyleGrouped;
+    _IQKeyboardManagerActive = NO;
 }
 
 - (void)dealloc
@@ -541,7 +542,7 @@
         NSDictionary *keyboardInfo = [notification userInfo];
         UIEdgeInsets tableContentInset = self.tableView.contentInset;
         UIEdgeInsets tableScrollIndicatorInsets = self.tableView.scrollIndicatorInsets;
-        tableContentInset.bottom = [_oldBottomTableContentInset floatValue];
+        tableContentInset.bottom = _IQKeyboardManagerActive ? 0 : [_oldBottomTableContentInset floatValue];
         tableScrollIndicatorInsets.bottom = tableContentInset.bottom;
         _oldBottomTableContentInset = nil;
         [UIView beginAnimations:nil context:nil];
