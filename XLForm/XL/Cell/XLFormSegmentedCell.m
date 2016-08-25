@@ -28,6 +28,8 @@
 #import "NSObject+XLFormAdditions.h"
 #import "UIView+XLFormAdditions.h"
 
+static const CGFloat SegmentedControlMarginVertical = 7;
+
 @interface XLFormSegmentedCell()
 
 @property NSMutableArray * dynamicCustomConstraints;
@@ -155,9 +157,11 @@
                                                                                 options:NSLayoutFormatAlignAllCenterY
                                                                                 metrics:0
                                                                                   views:views]];
-        [self.dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[segmentedControl]-|"
+        [self.dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|->=margin-[segmentedControl]->=margin-|"
                                                                                             options:0
-                                                                                                   metrics:0
+                                                                                                   metrics:@{
+                                                                                                         @"margin": @(SegmentedControlMarginVertical),
+                                                                                                         }
                                                                                                      views:views]];
         
     }
